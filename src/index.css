@@ -1,13 +1,72 @@
-body {
+:root {
+  /* colors */
+  --dark-1: #171717;
+  --dark-2: #262626;
+  --dark-3: #999999;
+  --grey: rgb(189, 189, 189, 0.3);
+  --light: rgb(189, 189, 189, 0.985);
+  --purp: rgb(128, 103, 220);
+  --medium-purp: rgb(156, 140, 214);
+  --light-purp: rgb(184, 175, 214);
+}
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd,
+ul {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  color: inherit;
+  text-decoration-skip-ink: auto;
+}
+
+a:hover {
+  color: var(--purp);
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+html {
+  background-color: var(--dark-1);
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+body {
+  font-family: 'Jost', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  /* min-height: 100vh; */
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+  overflow: hidden;
+  color: var(--light);
 }

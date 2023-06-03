@@ -1,0 +1,94 @@
+.sidebar {
+  background-color: var(--dark-2);
+  width: 1selec5vw;
+  flex-shrink: 0;
+  padding: 10px;
+  padding-top: 0px;
+  color: var(--dark-3);
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar-header {
+  text-align: center;
+  font-size: 30px;
+  font-weight: 700;
+  font-style: italic;
+  color: var(--light);
+  cursor: default;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 0;
+  margin-right: 0;
+  padding: 0;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--grey);
+}
+
+.sidebar input {
+  background-color: var(--grey);
+  width: 100%;
+  text-align: center;
+  border: 1px solid var(--dark-3);
+  border-radius: 5px;
+  box-sizing: border-box;
+  font-size: 1.5rem;
+  padding: 10px;
+  color: var(--dark-2);
+}
+
+.task-list {
+  margin-top: 10px;
+}
+
+.sidebar ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.task-item-container {
+  display: flex;
+  flex-direction: row;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+
+.task-name {
+  padding: 10px;
+  width: 100%;
+  border-radius: 5px;
+}
+
+.active {
+  background-color: var(--grey);
+}
+
+.task-delete {
+  background-color: rgb(255, 140, 140);
+  width: 0;
+  text-align: center;
+  border-radius: 5px;
+  font-weight: 600;
+  color: var(--dark-1);
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+  opacity: 0;
+  padding: 10px 0px 10px 0px;
+}
+
+.task-item-container:hover .task-name {
+  color: var(--dark-1);
+  background-color: var(--purp);
+  opacity: 0.7;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+
+.task-item-container:hover .task-delete {
+  width: 20%;
+  opacity: 100;
+  transition: width .5s, opacity .5s;
+}

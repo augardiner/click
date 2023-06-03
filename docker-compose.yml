@@ -1,0 +1,36 @@
+version: "3"
+services:
+  frontend:
+    restart: on-failure
+    build: .
+    depends_on:
+      - api
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/app/
+
+  api:
+    restart: on-failure
+    build: ./api
+    depends_on:
+      - postgres
+    environment:
+      - NODE_OPTIONS=--openssl-legacy-provider
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./api:/app/
+
+  postgres:
+    image: postgres:15
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: click
+    volumes:    
+      - ./data:/data
+volumes:
+  data:
