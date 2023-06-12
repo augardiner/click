@@ -14,7 +14,7 @@ type row = {
 function App(props:any) {
   const { task, addedSecs } = props;
   
-  const url = `http://api:5000/task_trend?task=${task.task}`;
+  const url = `http://localhost:5000/task_trend?task=${task.task}`;
   const { statusText, data } = useFetch(url, [task, addedSecs])
 
   const lightWhite = 'rgb(230, 230, 230)';
