@@ -7,15 +7,14 @@
 }
 
 .top-bar {
-  display: flex;
-  justify-content: end;
-  left: 0;
-  bottom: 0;
   position: absolute;
-  width: 100%;
-  background-color: var(--purp);
+  display: flex;
+  justify-content: flex-end;
   padding-right: 30px;
-  color: var(--dark-1);
+  width: 100%;
+  top: 0;
+  left: 0;
+  text-align: right;
 }
 
 .main-body {
@@ -61,4 +60,18 @@
   align-items: center;
   justify-content: center;
   flex-grow: 1;
+}
+
+.footer {
+  display: flex;
+  justify-content: flex-end;
+  left: 0;
+  bottom: 0;
+  position: absolute;
+  width: 100%;
+  background-color: var(--purp);
+  padding-left: 30px;
+  padding-right: 30px;
+  color: var(--dark-1);
+  font-weight: 500;
 }

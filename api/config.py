@@ -7,10 +7,10 @@ class Config(object):
     TESTING = False
     CSRF_ENABLED = True
     SECRET_KEY = 'this-really-needs-to-be-changed'
-    SQLALCHEMY_DATABASE_URI = "postgresql://postgres:password@postgres:5432/click"
 
 
 class ProductionConfig(Config):
+    SQLALCHEMY_DATABASE_URI = "postgresql://postgres:password@postgres:5432/click"
     DEBUG = False
 
 
@@ -20,6 +20,7 @@ class StagingConfig(Config):
 
 
 class DevelopmentConfig(Config):
+    SQLALCHEMY_DATABASE_URI = "postgresql://postgres:password@localhost:5432/click"
     DEVELOPMENT = True
     DEBUG = True
 

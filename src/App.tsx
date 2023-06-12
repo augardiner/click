@@ -3,7 +3,7 @@ import "./App.css";
 import Metronome from "./Components/Metronome/Metronome";
 import Sidebar from "./Components/Sidebar/Sidebar";
 import Content from "./Components/Content/Content";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { ReactComponent as GitHub } from './github.svg';
 
 
 function App() {
@@ -12,6 +12,7 @@ function App() {
   const [tasks, setTasks] = useState<object[]>([]);
   const [selectedTask, setSelectedTask] = useState<object | null>(null);
   const [addedSecs, setaddedSecs] = useState<boolean>(false)
+
 
   useEffect(() => {
   const url = "http://api:5000/tasks";
@@ -30,6 +31,7 @@ function App() {
     fetchItems(); 
   }, [selectedTask]);
   
+
   const handleTaskChange = (task:any) => {
     if (task.delete) {
       if (tasks.length == 1) setSelectedTask(null);
@@ -39,9 +41,11 @@ function App() {
     }
   };
 
+
   const addSecs = () => {
     setaddedSecs(!addedSecs);
   };
+
 
   const handleChangeTempo = (event:any) => {
     const newTempo = parseFloat(event.target.value);
@@ -49,14 +53,30 @@ function App() {
     setTempo(newTempo);
   };
 
+  
   return (
     <div className="app-container">
       <Sidebar 
         tasks={tasks}
         selectedTask={selectedTask}
         handleTaskChange={handleTaskChange}
-      />
+        />
       <div className="main-body">
+        <div className="top-bar">
+          <a
+            href="https://github.com/augardiner/click"
+            target="_blank"
+          >            
+            <GitHub
+              style={{ 
+                height: 53, 
+                width: 36,
+                fill: '#999999',
+                cursor: 'pointer',
+              }}
+            />
+          </a>
+        </div>
         <Metronome 
           tempo={tempo} 
           prevTempo={prevTempo.current}
@@ -84,9 +104,8 @@ function App() {
           addedSecs={addedSecs}
         />}
       </div>
-      <div className="top-bar">
-        {/* <FontAwesomeIcon icon="fa-brands fa-github" /> */}
-        <h4>AUG | 2023</h4>
+      <div className="footer">
+        <p>AUG | 2023</p>
       </div>
     </div>
   );

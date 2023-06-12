@@ -6,12 +6,6 @@ from sqlalchemy import text
 from datetime import datetime, timedelta
 
 
-# home route serves app from react build folder
-@app.route('/')
-def index():
-    return "hello"
-
-
 # Get all tasks
 @app.route("/tasks", methods=["POST", "GET", "DELETE"])
 def tasks():
