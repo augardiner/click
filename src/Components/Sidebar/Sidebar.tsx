@@ -2,7 +2,7 @@ import './Sidebar.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTrashCan } from '@fortawesome/free-solid-svg-icons'
 
-const url = 'http://localhost:5000/tasks';
+const url = '/tasks';
 
 const Sidebar = (props:any) => {
   const { tasks, selectedTask, handleTaskChange } = props;

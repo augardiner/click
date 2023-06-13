@@ -15,7 +15,7 @@ function App() {
 
 
   useEffect(() => {
-  const url = "http://localhost:5000/tasks";
+  const url = "/tasks";
     const fetchItems = async () => {
       try {
         const response = await fetch(url);

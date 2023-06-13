@@ -1,15 +1,15 @@
-FROM node:16-alpine 
+FROM python:3.11-slim-buster
 
 WORKDIR /app
 
+RUN apt-get update \
+    && apt-get -y install libpq-dev gcc
+
+COPY requirements.txt requirements.txt
+RUN pip3 install -r requirements.txt
+
 COPY . .
 
-RUN npm ci 
+EXPOSE 5000
 
-RUN npm run build
-
-ENV NODE_ENV production
-
-EXPOSE 3000
-
-CMD [ "npx", "serve", "build" ]
+CMD [ "python3", "app.py"]

@@ -1,9 +1,13 @@
 from flask import request
-from app import app
-from extensions import db
-from models import Task, Session
+from api import app, db
+from api.models import Task, Session
 from sqlalchemy import text
 from datetime import datetime, timedelta
+
+
+@app.route('/')
+def index():
+    return app.send_static_file('index.html')
 
 
 # Get all tasks

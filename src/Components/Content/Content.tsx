@@ -6,7 +6,7 @@ import Line from "./LineChart";
 const Content = (props:any) => {
   const { task, addedSecs } = props;
 
-  const url = `http://localhost:5000/task_total?task=${task.task}`;
+  const url = `/task_total?task=${task.task}`;
   const { statusText, data } = useFetch(url, [task, addedSecs]);
 
 

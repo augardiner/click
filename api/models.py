@@ -1,5 +1,5 @@
 from datetime import datetime
-from extensions import db
+from api import db
 
 class Task(db.Model):
     __tablename__ = 'tasks'

@@ -61,7 +61,7 @@ const Metronome = (props:any) => {
 
   // post session data to DB
   const handleNewSession = (runTime:number, prevTempo=null) => {
-    const url = "http://localhost:5000/sessions";
+    const url = "/sessions";
     const requestOptions = {
       method: "POST",
       headers: { "Content-Type": "application/json" },
