@@ -56,6 +56,7 @@ const Metronome = (props:any) => {
       }
     }
     setIsPlaying(!isPlaying);
+    props.setIsPlaying(!isPlaying);
   };
   
 

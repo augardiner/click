@@ -12,10 +12,21 @@ type row = {
 
 
 function App(props:any) {
-  const { task, addedSecs } = props;
+  const { task, addedSecs, setCurrentTempo, isPlaying } = props;
   
   const url = `/task_trend?task=${task.task}`;
   const { statusText, data } = useFetch(url, [task, addedSecs])
+
+  useEffect(() => {
+    if (data && data.data.length > 0) {
+      if (!isPlaying) {
+        const lastTempo = data.data.pop().tempo
+        setCurrentTempo(lastTempo)
+      }
+    } else {
+      setCurrentTempo(60)
+    }
+  }, [data])
 
   const lightWhite = 'rgb(230, 230, 230)';
   

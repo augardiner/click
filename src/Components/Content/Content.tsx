@@ -4,7 +4,7 @@ import Line from "./LineChart";
 
 
 const Content = (props:any) => {
-  const { task, addedSecs } = props;
+  const { task, addedSecs, setCurrentTempo, isPlaying } = props;
 
   const url = `/task_total?task=${task.task}`;
   const { statusText, data } = useFetch(url, [task, addedSecs]);
@@ -42,7 +42,12 @@ const Content = (props:any) => {
         {statusText == "OK" && <h2>{secsToHMS(data.totalSecs)}</h2>}
       </div>
       <h2 className="chart-title">Tempo</h2>
-      <Line task={task} addedSecs={addedSecs}/>
+      <Line 
+        task={task} 
+        addedSecs={addedSecs}
+        isPlaying={isPlaying}
+        setCurrentTempo={setCurrentTempo}
+      />
     </div>
   )
 };

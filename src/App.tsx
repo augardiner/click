@@ -7,13 +7,15 @@ import { ReactComponent as GitHub } from './github.svg';
 
 
 function App() {
-  const [tempo, setTempo] = useState(60);
+  const [currentTempo, setCurrentTempo] = useState(60);
   const prevTempo = useRef<number | null>(null);
   const [tasks, setTasks] = useState<object[]>([]);
   const [selectedTask, setSelectedTask] = useState<object | null>(null);
   const [addedSecs, setaddedSecs] = useState<boolean>(false)
+  const [isPlaying, setIsPlaying] = useState<boolean>(false)
 
 
+  // Get all tasks
   useEffect(() => {
   const url = "/tasks";
     const fetchItems = async () => {
@@ -49,8 +51,8 @@ function App() {
 
   const handleChangeTempo = (event:any) => {
     const newTempo = parseFloat(event.target.value);
-    prevTempo.current = tempo;
-    setTempo(newTempo);
+    prevTempo.current = currentTempo;
+    setCurrentTempo(newTempo);
   };
 
   
@@ -78,15 +80,16 @@ function App() {
           </a>
         </div>
         <Metronome 
-          tempo={tempo} 
+          tempo={currentTempo}
           prevTempo={prevTempo.current}
           task={selectedTask}
           handleNewSession={addSecs}
+          setIsPlaying={setIsPlaying}
         />
         <div className="slidecontainer">
           <input
             type="range"
-            value={tempo}
+            value={currentTempo}
             min="40" 
             max="208"
             onChange={handleChangeTempo}
@@ -102,6 +105,8 @@ function App() {
           <Content 
           task={selectedTask}
           addedSecs={addedSecs}
+          isPlaying={isPlaying}
+          setCurrentTempo={setCurrentTempo}
         />}
       </div>
       <div className="footer">

@@ -86,12 +86,12 @@ def get_tempo_trend():
 
     task = request.args.get('task')
     sql = text(f"""
-        select 
+        SELECT 
             run_time, 
             tempo
-        from sessions 
-        where task = '{task}'
-        order by start_time
+        FROM sessions 
+        WHERE task = '{task}'
+        ORDER BY start_time
     """)
     
     res = db.session.execute(sql)
