@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import "./Metronome.css";
 import click from "./click.mp3"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons'
 
 
 const Metronome = (props:any) => {
@@ -89,20 +91,28 @@ const Metronome = (props:any) => {
 
   return (
     <div className="metronome-containter">
-      <div 
-        className="second_ring"
-        // style={{animation: `clickAnimation ${secondsPerClick}s ${isPlaying ? "infinite" : "0"}`}}
-        >
-      </div>
-      <div 
-        className="first_ring"
-        // style={{animation: `clickAnimation ${secondsPerClick}s ${isPlaying ? "infinite" : "0"}`}}
-        >
-      </div>
+      <FontAwesomeIcon 
+        icon={faChevronLeft}
+        style={{
+          height: '50'
+        }}
+        className="tempo-icon"
+        onClick={() => props.setCurrentTempo(tempo - 1)}
+        />
+      <div>
       <div className="button" onClick={handleStartStop}>
         <div className="startStop">{isPlaying ? "STOP" : "START"}</div>
         <div>{tempo}</div>
       </div>
+      </div>
+      <FontAwesomeIcon 
+        icon={faChevronRight}
+        style={{
+          height: '50'
+        }}
+        className="tempo-icon"
+        onClick={() => props.setCurrentTempo(tempo + 1)}
+      />
     </div>
   );
 };

@@ -85,6 +85,7 @@ function App() {
           task={selectedTask}
           handleNewSession={addSecs}
           setIsPlaying={setIsPlaying}
+          setCurrentTempo={setCurrentTempo}
         />
         <div className="slidecontainer">
           <input

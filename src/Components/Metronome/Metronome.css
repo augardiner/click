@@ -1,12 +1,11 @@
 .metronome-containter {
   height: 350px;
-  /* width: 250px; */
   width: 100%;
   background-image: linear-gradient(180deg, var(--grey), var(--dark-1));
   display: flex;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
-  /* border: solid red 1px; */
 }
 
 .button {
@@ -19,8 +18,8 @@
   background-color: var(--purp);
   font-size: 3rem;
   position: relative;
-  /* top: 25px; */
-  /* left: 25px; */
+  margin-right: 10px;
+  margin-left: 10px;
   color: white;
   border-radius: 50%;
   z-index: 2;
@@ -28,38 +27,20 @@
   box-shadow: var(--dark-1) 0px 8px 24px;
 }
 
+.button:hover {
+  opacity: .90;
+}
+
 .startStop {
   font-size: 1rem;
 }
 
-.first_ring {
-  height: 225px;
-  width: 225px;
-  background-color: var(--medium-purp);
-  position: absolute;
-  /* top: 12.5px; */
-  margin-top: 12.5px;
-  margin-left: 12.5px;
-  border-radius: 50%;
-  z-index: 1;
-  opacity: 0;
+.tempo-icon {
+  cursor: pointer;
+  padding: 10px;
 }
 
-.second_ring {
-  height: 250px;
-  width: 250px;
-  background-color: var(--light-purp);
-  position: absolute;
-  border-radius: 50%;
-  z-index: 0;
-  opacity: 0;
-}
-
-@keyframes clickAnimation {
-  0% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0;
-  }
+.tempo-icon:hover {
+  background-color: var(--grey);
+  border-radius: 5px;
 }
