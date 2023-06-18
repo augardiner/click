@@ -46,7 +46,8 @@ const Metronome = (props:any) => {
   }, [tempo]);
 
 
-  const handleStartStop = () => {
+  const handleStartStop = (e:any) => {
+    if (e.type == "keydown" && e.code != "Space") return
     if (!isPlaying) {
       playTick();
       setStartTime(new Date().valueOf());
@@ -100,7 +101,14 @@ const Metronome = (props:any) => {
         onClick={() => props.setCurrentTempo(tempo - 1)}
         />
       <div>
-      <div className="button" onClick={handleStartStop}>
+        <div 
+          className="button" 
+          onClick={handleStartStop}
+          onKeyDown={handleStartStop}
+          tabIndex={0}    
+          role={"button"}
+          aria-pressed={false}
+        >
         <div className="startStop">{isPlaying ? "STOP" : "START"}</div>
         <div>{tempo}</div>
       </div>
